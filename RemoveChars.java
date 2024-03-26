@@ -14,6 +14,15 @@ public class RemoveChars {
     }
 
     System.out.println(str2);
+
+    switch ("a")
+
+    {
+      case "a":
+        System.out.println("a");
+        break;
+
+    }
   }
 
 }
