@@ -61,6 +61,61 @@ public class MyDigitCounter {
     return count;
   }
 
+  public static void printPrime(int n) {
+    int count = 0;
+    System.out.println("Printing Prime Numbers less than " + n);
+
+    for (int i = 2; i <= n; i++) {
+      // System.out.println("i=" + i);
+      for (int j = 2; j <= i; j++) {
+        if (i % j == 0)
+          // System.out.println("j=" + j);
+          count++;
+      }
+      if (count == 1)
+        System.out.print(i + " ");
+
+      count = 0;
+
+    }
+
+    System.out.println("");
+  }
+
+  public static boolean isPrime(int n) {
+
+    if (n == 1)
+      return false;
+    if (n == 2 || n == 3)
+      return true;
+
+    if (n % 2 == 0 || n % 3 == 0)
+      return false;
+
+    for (int i = 5; i * i <= n; i = i + 6) {
+      if (n % i == 0 || n % (i + 2) == 0)
+        return false;
+    }
+
+    return true;
+
+  }
+
+  public static void printPrimeFactors(int n) {
+
+    for (int i = 2; i <= n; i++) {
+      if (isPrime(i) && n % i == 0) {
+        int x = i;
+        while (n % x == 0) {
+          System.out.println(i);
+          x = x * i;
+        }
+
+      }
+    }
+
+  }
+
   public static void main(String[] args) {
 
     // Digit counter
@@ -90,6 +145,10 @@ public class MyDigitCounter {
     System.out.println(trailingFactZeros(10));
     System.out.println("Number of Trailing zeros in fact(100)");
     System.out.println(trailingFactZeros(100));
+
+    // printPrime(10);
+    // printPrime(23);
+    printPrimeFactors(12);
 
   }
 
